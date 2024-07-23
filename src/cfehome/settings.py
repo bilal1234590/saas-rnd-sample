@@ -23,7 +23,7 @@ print(BASE_DIR, "BASE_DIR")
 SECRET_KEY = "django-insecure-c11bwx4jy#55*ba*na5c@635-dahzgi4(75s6jl3vhz7kto+1v"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG") or True
+DEBUG = str(os.environ.get("DEBUG")).lower() == "True"
 
 print("DEBUG", DEBUG, type(DEBUG))
 
