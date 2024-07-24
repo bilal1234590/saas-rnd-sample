@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+from decouple import config
 import os
 from pathlib import Path
 
@@ -20,12 +21,14 @@ print(BASE_DIR, "BASE_DIR")
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-c11bwx4jy#55*ba*na5c@635-dahzgi4(75s6jl3vhz7kto+1v"
+SECRET_KEY = config("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = str(os.environ.get("DJANGO_DEBUG")).lower() == "True"
+#DEBUG = str(os.environ.get("DJANGO_DEBUG")).lower() == "True"
+DEBUG = config("DJANGO_DEBUG", cast=bool)
 
 print("DEBUG", DEBUG, type(DEBUG))
+
 
 ALLOWED_HOSTS = [
     ".railway.app" #this allows https//:saas.prod.railway.app
