@@ -167,3 +167,6 @@ cython_debug/
 #ignore static files
 src/staticfiles/vendors/flowbite.min.css
 src/staticfiles/vendors/flowbite.min.js
+
+#ignore local cdn and static files
+local-cdn/
