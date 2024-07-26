@@ -10,7 +10,8 @@ STATICFILES_VENDOR_DIR = getattr(settings,
 
 VENDOR_STATICFILES = {
     "flowbite.min.css": "https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css",
-    "flowbite.min.js": "https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"
+    "flowbite.min.js": "https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js",
+    "flowbite.min.js.map": "https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js.map"
 }
 
 
@@ -32,7 +33,8 @@ class Command(BaseCommand):
                 self.stdout.write(
                     self.style.SUCCESS(f'Successfully updated all vendor static files.')
                 )
-            else:
+            """else:
                 self.stdout.write(
                     self.style.WARNING('Some files were not updated')
                 )
+            """
