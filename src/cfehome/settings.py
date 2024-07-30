@@ -171,4 +171,3 @@ if not DEBUG:
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-fieldm
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-print("hello")
