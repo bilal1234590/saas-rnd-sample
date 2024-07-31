@@ -27,8 +27,17 @@ EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool, default=True)  # Use EMAIL_PO
 EMAIL_USE_SSL = config("EMAIL_USE_SSL", cast=bool, default=False)  # EUse MAIL_PORT 465 for SSL
 
 #500 errors -> will be sent email
-ADMINS=[('Bilal', 'girachbilal8@gmail.com')]
-MANAGERS=ADMINS
+ADMINS_USER_NAME=config("ADMIN_USER_NAME", default='Admin user')
+ADMINS_USER_EMAIL=config("ADMINS_USER_EMAIL", default=None)
+
+MANAGERS=[]
+ADMINS=[]
+if all([ADMINS_USER_NAME, ADMINS_USER_EMAIL]):
+    # 500 errors are emailed to these users
+    ADMINS +=[
+        (f'{ADMINS_USER_NAME}', f'{ADMINS_USER_EMAIL}')
+    ]
+    MANAGERS=ADMINS
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
